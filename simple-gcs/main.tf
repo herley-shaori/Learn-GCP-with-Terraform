@@ -10,8 +10,8 @@ terraform {
 provider "google" {
   credentials = file("learn-gcp-465712-16bdad8c3ce1.json")
   project     = "learn-gcp-465712"
-  region      = "us-central1"
-  zone        = "us-central1-a"
+  region      = "asia-southeast2"
+  zone        = "asia-southeast2-a"
 }
 
 # Create a simple firewall rule to allow HTTP traffic
@@ -32,7 +32,7 @@ resource "google_compute_firewall" "allow_http" {
 resource "google_compute_instance" "simple_vm" {
   name         = "simple-vm"
   machine_type = "e2-micro"  # Cheapest instance type
-  zone         = "us-central1-a"
+  zone         = "asia-southeast2-a"
 
   boot_disk {
     initialize_params {
