@@ -7,8 +7,9 @@ terraform {
   }
 }
 
+# Provider configuration using credentials from parent directory
 provider "google" {
-  credentials = file("learn-gcp-465712-16bdad8c3ce1.json")
+  credentials = file("../learn-gcp-465712-16bdad8c3ce1.json")
   project     = "learn-gcp-465712"
   region      = "asia-southeast2"
   zone        = "asia-southeast2-a"

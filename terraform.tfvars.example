@@ -1,0 +1,6 @@
+# GCP Project Configuration
+# Copy this file to terraform.tfvars and update with your values
+
+project_id = "your-project-id"
+region     = "asia-southeast2"
+zone       = "asia-southeast2-a"
