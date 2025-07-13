@@ -32,9 +32,10 @@ This repository contains Terraform configurations for learning and experimenting
    ```
 
 2. **Add your service account key**:
-   - Place your GCP service account JSON key file in the root directory
-   - The file should match the pattern: `learn-gcp-*.json`
-   - This file is git-ignored for security
+   - Store your GCP service account JSON key file outside the repository (e.g., in `~/Downloads/`)
+   - Current configuration expects: `~/Downloads/learn-gcp-465712-b4619fb17de4.json`
+   - Never store credentials inside the repository directory
+   - All JSON files are git-ignored for additional security
 
 3. **Enable required APIs** in your GCP project:
    - Compute Engine API
@@ -44,7 +45,7 @@ This repository contains Terraform configurations for learning and experimenting
 
 This repository uses a shared configuration approach for consistency across modules:
 
-- **Credentials**: Service account JSON file in the root directory
+- **Credentials**: Service account JSON file stored outside repository (~/Downloads/)
 - **Project ID**: `learn-gcp-465712` (update in each module as needed)
 - **Default Region**: `asia-southeast2` (Jakarta)
 - **Default Zone**: `asia-southeast2-a`
@@ -55,7 +56,7 @@ Each module references the credentials file from the parent directory:
 
 ```hcl
 provider "google" {
-  credentials = file("../learn-gcp-465712-16bdad8c3ce1.json")
+  credentials = file("~/Downloads/learn-gcp-465712-b4619fb17de4.json")
   project     = "learn-gcp-465712"
   region      = "asia-southeast2"
   zone        = "asia-southeast2-a"

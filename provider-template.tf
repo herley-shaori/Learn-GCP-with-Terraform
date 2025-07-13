@@ -17,7 +17,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("../learn-gcp-465712-16bdad8c3ce1.json")
+  credentials = file("~/Downloads/learn-gcp-465712-b4619fb17de4.json")
   project     = "learn-gcp-465712"
   region      = "asia-southeast2"
   zone        = "asia-southeast2-a"
@@ -37,7 +37,7 @@ provider "google" {
 # }
 # 
 # provider "google" {
-#   credentials = file("../learn-gcp-465712-16bdad8c3ce1.json")
+#   credentials = file("~/Downloads/learn-gcp-465712-b4619fb17de4.json")
 #   project     = var.project_id
 #   region      = var.region
 #   zone        = var.zone

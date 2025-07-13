@@ -36,5 +36,9 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-learn-gcp-465712-16bdad8c3ce1.json
+# Service account credentials
+learn-gcp-*.json
+*.json
+
+# Claude AI files
 CLAUDE.md
