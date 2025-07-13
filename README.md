@@ -9,7 +9,7 @@ This repository contains Terraform configurations for learning and experimenting
 ├── README.md                    # This file
 ├── provider-template.tf         # Template for provider configuration
 ├── terraform.tfvars.example     # Example variables file
-├── learn-gcp-465712-*.json      # GCP service account credentials (not tracked)
+├── *.json                       # GCP service account credentials (not tracked)
 ├── simple-gcs/                  # Simple VM deployment example
 └── [future-modules]/            # Additional GCP learning modules
 ```
@@ -31,11 +31,10 @@ This repository contains Terraform configurations for learning and experimenting
    cd Learn-GCP-with-Terraform
    ```
 
-2. **Add your service account key**:
-   - Store your GCP service account JSON key file outside the repository (e.g., in `~/Downloads/`)
-   - Current configuration expects: `~/Downloads/learn-gcp-465712-b4619fb17de4.json`
+2. **Configure your service account key**:
+   - Store your GCP service account JSON key file outside the repository
+   - Update the credentials path in your Terraform files
    - Never store credentials inside the repository directory
-   - All JSON files are git-ignored for additional security
 
 3. **Enable required APIs** in your GCP project:
    - Compute Engine API
@@ -45,8 +44,8 @@ This repository contains Terraform configurations for learning and experimenting
 
 This repository uses a shared configuration approach for consistency across modules:
 
-- **Credentials**: Service account JSON file stored outside repository (~/Downloads/)
-- **Project ID**: `learn-gcp-465712` (update in each module as needed)
+- **Credentials**: Service account JSON file stored outside repository
+- **Project ID**: Your GCP project ID
 - **Default Region**: `asia-southeast2` (Jakarta)
 - **Default Zone**: `asia-southeast2-a`
 
@@ -56,8 +55,8 @@ Each module references the credentials file from the parent directory:
 
 ```hcl
 provider "google" {
-  credentials = file("~/Downloads/learn-gcp-465712-b4619fb17de4.json")
-  project     = "learn-gcp-465712"
+  credentials = file("/path/to/your/credentials.json")
+  project     = "your-project-id"
   region      = "asia-southeast2"
   zone        = "asia-southeast2-a"
 }
