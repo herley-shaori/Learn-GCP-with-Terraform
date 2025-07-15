@@ -1,0 +1,75 @@
+Demo Execution Journey - Basic VM Demo
+======================================
+Date: July 15, 2025
+Region: Jakarta (asia-southeast2)
+
+STEP 1: Infrastructure Creation
+-------------------------------
+- Successfully created GCE instance "basic-vm-demo" in zone asia-southeast2-a
+- Instance type: e2-micro (1 vCPU, 1GB memory)
+- Operating System: Ubuntu 22.04 LTS
+- Disk: 20GB standard persistent disk
+- Network: Default VPC with external IP assigned
+- Firewall rule created to allow HTTP traffic on port 80
+
+STEP 2: Instance Details
+------------------------
+- Instance Name: basic-vm-demo
+- External IP: 34.101.180.148
+- Internal IP: 10.184.0.3
+- Instance ID: 2243861682102983604
+- Zone: asia-southeast2-a
+
+STEP 3: Connectivity Testing
+----------------------------
+- Ping test to VM at IP 34.101.180.148:
+  * 3 packets transmitted, 3 received, 0% packet loss
+  * Average latency: 107.415ms
+  * VM is reachable and responding to ICMP requests
+
+STEP 4: Web Server Verification
+-------------------------------
+- HTTP HEAD request successful (HTTP/1.1 200 OK)
+- Server: nginx/1.18.0 (Ubuntu)
+- Custom index page successfully deployed
+- Web content retrieved showing:
+  * Title: "GCE Basic VM Demo"
+  * Message: "Hello from GCE Basic VM!"
+  * Confirmed running in Jakarta region (asia-southeast2)
+
+STEP 5: Resource Tagging
+------------------------
+- All resources properly tagged with:
+  * environment: demo
+  * purpose: basic-vm-poc
+  * managed_by: terraform
+
+CONCLUSION
+----------
+✅ VM successfully created and running
+✅ Network connectivity verified via ping
+✅ Web server (nginx) installed and operational
+✅ Custom web page deployed and accessible
+✅ All resources properly tagged for management
+✅ Infrastructure deployed in Jakarta region as required
+
+POC Status: SUCCESS
+
+Access the demo at: http://34.101.180.148
+
+STEP 6: Infrastructure Cleanup
+------------------------------
+- Executed terraform destroy command
+- All resources successfully destroyed:
+  * VM instance "basic-vm-demo" deleted
+  * Firewall rule "basic-vm-demo-allow-http" deleted
+- Terraform state verified as empty
+- No remaining billable resources
+- Cleanup completed to avoid any extra costs
+
+FINAL STATUS
+------------
+✅ PoC completed successfully
+✅ All objectives achieved
+✅ Infrastructure cleaned up completely
+✅ Zero billable resources remaining
