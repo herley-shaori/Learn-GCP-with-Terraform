@@ -1,0 +1,23 @@
+# Example Terraform variables file
+# Copy this file to terraform.tfvars and update with your values
+
+# Project configuration
+project_id       = "learn-gcp-465712"
+region           = "asia-southeast2"  # Jakarta
+zone             = "asia-southeast2-a"
+credentials_path = "~/Downloads/learn-gcp-465712-b4619fb17de4.json"
+
+# Machine type selection
+# Options: "micro" (1vCPU, 1GB), "small" (1vCPU, 2GB), "standard" (2vCPU, 2GB)
+selected_machine_type = "micro"
+
+# Network configuration (optional - defaults are provided)
+# network_name = "custom-machine-vpc"
+# subnet_name  = "custom-machine-subnet"
+# subnet_cidr  = "10.0.1.0/24"
+
+# Instance configuration (optional - defaults are provided)
+# instance_name_prefix = "custom-machine-demo"
+# boot_disk_size       = 10
+# boot_disk_type       = "pd-standard"
+# boot_disk_image      = "debian-cloud/debian-11"

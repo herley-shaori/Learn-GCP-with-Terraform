@@ -1,0 +1,86 @@
+=== Custom Machine Type Demo Journey ===
+Date: 2025-07-16
+Region: Jakarta (asia-southeast2)
+
+[2025-07-16 - Setup Phase]
+- Created project structure with Terraform best practices
+- Configured three custom machine types:
+  * Micro: 1 vCPU, 1GB RAM (cheapest)
+  * Small: 1 vCPU, 2GB RAM (budget)
+  * Standard: 2 vCPUs, 2GB RAM (balanced)
+- Implemented resource tagging for all resources
+- Set up preemptible/spot instances for cost optimization
+
+[2025-07-16 - Deployment Phase]
+- Terraform initialized successfully
+- Starting deployment with 'micro' instance configuration...
+- ✅ Successfully created micro instance (custom-1-1024)
+- External IP: 34.101.107.86
+- Internal IP: 10.0.1.2
+
+[Testing Phase - Micro Instance]
+- Ping test results:
+  * 4 packets transmitted, 4 received, 0% packet loss
+  * Average RTT: 67.594ms
+- HTTP test: ✅ Successfully accessed web page
+- Instance confirmed running with custom machine type specifications
+- Destroying micro instance to test small configuration...
+
+[2025-07-16 - Small Instance Deployment]
+- ✅ Micro instance destroyed successfully
+- Updating configuration to 'small' machine type...
+- ✅ Successfully created small instance (custom-1-2048)
+- External IP: 34.101.107.86
+- Internal IP: 10.0.1.2
+
+[Testing Phase - Small Instance]
+- Ping test results:
+  * 4 packets transmitted, 4 received, 0% packet loss
+  * Average RTT: 77.505ms
+- HTTP test: ✅ Successfully accessed web page
+- Confirmed machine type: custom-1-2048 (1 vCPU, 2GB RAM)
+- Destroying small instance to test standard configuration...
+
+[2025-07-16 - Standard Instance Deployment]
+- ✅ Small instance destroyed successfully
+- Updating configuration to 'standard' machine type...
+- ✅ Successfully created standard instance (custom-2-2048)
+- External IP: 34.101.86.26
+- Internal IP: 10.0.1.2
+
+[Testing Phase - Standard Instance]
+- Ping test results:
+  * 4 packets transmitted, 4 received, 0% packet loss
+  * Average RTT: 46.166ms (fastest of all three instances!)
+- HTTP test: ✅ Successfully accessed web page
+- Confirmed machine type: custom-2-2048 (2 vCPUs, 2GB RAM)
+
+[2025-07-16 - Summary and Cleanup]
+=== POC SUCCESS ===
+✅ Successfully tested all three custom machine types:
+  1. Micro (custom-1-1024): 1 vCPU, 1GB RAM - Cheapest option
+  2. Small (custom-1-2048): 1 vCPU, 2GB RAM - Budget option  
+  3. Standard (custom-2-2048): 2 vCPUs, 2GB RAM - Balanced option
+
+All instances:
+- Were deployed in Jakarta region (asia-southeast2)
+- Used preemptible/spot instances for cost savings
+- Had proper tagging and labeling
+- Were accessible via ping and HTTP
+- Displayed custom web pages with their specifications
+
+Cost optimizations applied:
+- Preemptible/spot instances
+- Minimal boot disk size (10GB)
+- Standard persistent disk type
+- Custom machine types for exact resource allocation
+
+Now destroying all resources to avoid costs...
+✅ All resources destroyed successfully!
+
+[2025-07-16 - Final Status]
+POC COMPLETED SUCCESSFULLY
+- All three custom machine types tested
+- All resources cleaned up
+- No ongoing charges
+- Demo fully documented in README.md
