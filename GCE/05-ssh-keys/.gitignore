@@ -1,0 +1,18 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# SSH keys - NEVER commit private keys!
+demo-key
+*.pem
+*.key
+
+# Variable files with sensitive data
+terraform.tfvars
+*.auto.tfvars
+
+# Local test files
+test-output.txt
+.DS_Store

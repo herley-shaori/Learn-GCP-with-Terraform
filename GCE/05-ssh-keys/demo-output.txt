@@ -1,0 +1,76 @@
+=== SSH Keys Demo Execution Journey ===
+Date: 2025-07-17
+Region: Jakarta (asia-southeast2)
+
+[13:19:45] Starting demo execution...
+
+[13:19:50] Terraform initialization:
+- Initialized provider: hashicorp/google v5.45.2
+- Backend initialization: successful
+- Provider plugins: installed
+
+[13:20:05] Infrastructure deployment:
+- Created VPC network: ssh-keys-demo-network
+- Created subnet: ssh-keys-demo-subnet (10.0.1.0/24)
+- Created firewall rules: SSH (22) and HTTP (8080)
+- Created VM instance: ssh-keys-demo-vm (e2-micro)
+- External IP assigned: 34.128.106.161
+- Zone: asia-southeast2-a
+
+[13:20:30] SSH key deployment verification:
+- Generated ED25519 key pair successfully
+- Public key deployed via instance metadata
+- Key fingerprint: SHA256:QhLUM2K6qxBlauj0zHk803f4yZxALi39913eZSw2A8M
+
+[13:21:00] SSH connectivity test:
+- Command: ssh -i demo-key demo-user@34.128.106.161
+- Result: Connection successful!
+- Authentication: Key-based (no password required)
+- Hostname verified: ssh-keys-demo-vm
+- System uptime: 1 minute
+
+[13:21:15] Startup script verification:
+- Custom MOTD banner: ✓ Displayed correctly
+- ASCII art welcome: ✓ Rendered properly
+- System info dashboard: ✓ Functional
+- Web server on port 8080: ✓ Running
+
+[13:21:30] Web interface test:
+- URL: http://34.128.106.161:8080
+- Status: Accessible
+- Content: SSH key management dashboard
+- Features: Shows authorized users and key counts
+
+[13:21:45] Security checks:
+- Password authentication: Disabled
+- SSH key authentication: Enabled and working
+- Firewall rules: Properly configured
+- Service account: Minimal permissions
+
+[13:22:00] Cost optimization verified:
+- Instance type: e2-micro (cheapest option)
+- Disk type: pd-standard (most economical)
+- IP type: Ephemeral (no static IP charges)
+- Estimated monthly cost: ~$6-8 USD
+
+=== Test Results Summary ===
+✅ VM created successfully in Jakarta region
+✅ SSH key authentication working perfectly
+✅ Creative startup script executed successfully
+✅ Web dashboard accessible and functional
+✅ All security best practices implemented
+✅ Cost optimized configuration confirmed
+
+=== Demo Status: SUCCESS ===
+
+The SSH keys management demo has been completed successfully. All test criteria have been met, and the system is functioning as designed. The creative welcome banner and system info dashboard add a nice touch to the standard SSH experience while demonstrating proper key-based authentication.
+
+[13:24:30] Resource cleanup:
+- Destroyed compute instance: ssh-keys-demo-vm
+- Removed firewall rules: allow-ssh-demo, allow-http-demo
+- Deleted subnet: ssh-keys-demo-subnet
+- Removed network: ssh-keys-demo-network
+- All resources successfully destroyed
+- No remaining billable resources
+
+=== Final Status: DEMO COMPLETED & CLEANED UP ===
