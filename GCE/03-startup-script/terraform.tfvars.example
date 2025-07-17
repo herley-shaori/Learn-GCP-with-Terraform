@@ -1,0 +1,24 @@
+# Example Terraform variables file
+# Copy this file to terraform.tfvars and update with your values
+
+# Project configuration
+project_id       = "learn-gcp-465712"
+region           = "asia-southeast2"  # Jakarta
+zone             = "asia-southeast2-a"
+credentials_path = "~/Downloads/learn-gcp-465712-b4619fb17de4.json"
+
+# Instance configuration
+instance_name    = "startup-script-demo"
+machine_type     = "e2-micro"  # Cheapest instance type
+boot_disk_image  = "debian-cloud/debian-11"
+boot_disk_size   = 10
+boot_disk_type   = "pd-standard"
+
+# Network configuration (optional - defaults provided)
+# network_name = "startup-script-vpc"
+# subnet_name  = "startup-script-subnet"
+# subnet_cidr  = "10.0.2.0/24"
+
+# Dashboard configuration (optional)
+# dashboard_port    = 8080
+# refresh_interval  = 5
