@@ -2,7 +2,7 @@
 variable "project_id" {
   description = "The GCP project ID"
   type        = string
-  default     = "learn-gcp-465712"
+  # No default - must be provided by user
 }
 
 variable "region" {
@@ -20,7 +20,7 @@ variable "zone" {
 variable "credentials_path" {
   description = "Path to the GCP credentials JSON file"
   type        = string
-  default     = "~/Downloads/learn-gcp-465712-b4619fb17de4.json"
+  default     = "" # Empty string means use default authentication
 }
 
 # Network configuration

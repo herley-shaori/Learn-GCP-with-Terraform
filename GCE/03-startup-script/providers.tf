@@ -20,7 +20,15 @@ provider "google" {
   project     = var.project_id
   region      = var.region
   zone        = var.zone
-  credentials = file(var.credentials_path)
+  
+  # Authentication options:
+  # 1. Set GOOGLE_APPLICATION_CREDENTIALS environment variable
+  # 2. Use gcloud auth application-default login
+  # 3. Specify credentials file path (not recommended for production)
+  # 4. Use service account attached to the resource running Terraform
+  # 
+  # Uncomment and set path if using credentials file:
+  # credentials = file(var.credentials_path)
 }
 
 # Random provider (no configuration needed)

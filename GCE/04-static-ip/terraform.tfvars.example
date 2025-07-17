@@ -1,0 +1,14 @@
+# Example Terraform variables for static IP demo
+# Copy this file to terraform.tfvars and update with your values
+
+# Project configuration
+project_id = "your-gcp-project-id"
+
+# Optional: Uncomment and set if using credentials file
+# credentials_path = "/path/to/your/credentials.json"
+
+# Optional: Override default values
+# instance_name  = "my-static-ip-vm"
+# static_ip_name = "my-reserved-ip"
+# network_name   = "my-vpc"
+# subnet_name    = "my-subnet"

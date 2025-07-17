@@ -10,7 +10,15 @@
 variable "project_id" {
   description = "The GCP project ID"
   type        = string  # Ensures the value is a string
-  default     = "learn-gcp-465712"  # Default value can be overridden
+  # No default - must be provided by user
+}
+
+# Path to the service account credentials file (optional)
+# If not specified, other authentication methods will be used
+variable "credentials_file" {
+  description = "Path to the GCP service account credentials JSON file"
+  type        = string
+  default     = ""  # Empty string means use default authentication
 }
 
 # Regional Configuration

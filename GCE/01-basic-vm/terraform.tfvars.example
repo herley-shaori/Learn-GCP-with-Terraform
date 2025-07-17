@@ -1,0 +1,14 @@
+# Example Terraform variables for basic VM demo
+# Copy this file to terraform.tfvars and update with your values
+
+# Project configuration
+project_id = "your-gcp-project-id"
+
+# Optional: Uncomment and set if using credentials file
+# credentials_file = "/path/to/your/credentials.json"
+
+# Optional: Override default values
+# instance_name = "my-basic-vm"
+# machine_type  = "e2-small"
+# region        = "asia-southeast2"
+# zone          = "asia-southeast2-a"

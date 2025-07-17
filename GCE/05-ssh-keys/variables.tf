@@ -2,6 +2,13 @@
 variable "project_id" {
   description = "GCP Project ID where resources will be created"
   type        = string
+  # No default - must be provided by user
+}
+
+variable "credentials_path" {
+  description = "Path to the GCP credentials JSON file"
+  type        = string
+  default     = "" # Empty string means use default authentication
 }
 
 variable "region" {
