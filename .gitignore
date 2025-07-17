@@ -78,3 +78,8 @@ logs/
 test-output/
 test-results/
 local-tests/
+
+CLAUDE.md
+plan-execution.txt
+plan.txt
+tfplan
