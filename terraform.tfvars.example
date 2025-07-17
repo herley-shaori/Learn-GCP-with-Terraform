@@ -1,6 +1,19 @@
-# GCP Project Configuration
-# Copy this file to terraform.tfvars and update with your values
+# Example Terraform Variables File
+# 
+# Copy this file to terraform.tfvars and fill in your values
+# IMPORTANT: Never commit terraform.tfvars to version control!
 
-project_id = "your-project-id"
-region     = "asia-southeast2"
-zone       = "asia-southeast2-a"
+# Required: Your GCP Project ID
+project_id = "your-gcp-project-id"
+
+# Optional: Override default region and zone
+# region = "asia-southeast2"      # Jakarta (default)
+# zone   = "asia-southeast2-a"    # Jakarta zone (default)
+
+# Optional: If using service account key file authentication
+# Recommended: Use environment variable GOOGLE_APPLICATION_CREDENTIALS instead
+# credentials_path = "/path/to/your-service-account-key.json"
+
+# Example for specific modules:
+# instance_name = "my-custom-instance"
+# machine_type  = "e2-micro"

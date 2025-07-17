@@ -31,12 +31,30 @@ This repository contains Terraform configurations for learning and experimenting
    cd Learn-GCP-with-Terraform
    ```
 
-2. **Configure your service account key**:
+2. **Set up authentication** (choose one method):
+   
+   **Option 1: Environment Variable (Recommended)**
+   ```bash
+   export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-service-account-key.json"
+   ```
+   
+   **Option 2: Application Default Credentials**
+   ```bash
+   gcloud auth application-default login
+   ```
+   
+   **Option 3: Service Account Key File**
    - Store your GCP service account JSON key file outside the repository
-   - Update the credentials path in your Terraform files
-   - Never store credentials inside the repository directory
+   - Update the `credentials_path` variable in terraform.tfvars
+   - Never commit credentials to git
 
-3. **Enable required APIs** in your GCP project:
+3. **Create terraform.tfvars**:
+   ```hcl
+   # Copy from terraform.tfvars.example
+   project_id = "your-gcp-project-id"
+   ```
+
+4. **Enable required APIs** in your GCP project:
    - Compute Engine API
    - (Additional APIs as needed for specific modules)
 
@@ -51,14 +69,14 @@ This repository uses a shared configuration approach for consistency across modu
 
 ### Using the Provider Template
 
-Each module references the credentials file from the parent directory:
+Each module uses variables for configuration:
 
 ```hcl
 provider "google" {
-  credentials = file("/path/to/your/credentials.json")
-  project     = "your-project-id"
-  region      = "asia-southeast2"
-  zone        = "asia-southeast2-a"
+  # Authentication handled via environment variable or gcloud
+  project = var.project_id
+  region  = var.region
+  zone    = var.zone
 }
 ```
 
@@ -116,12 +134,49 @@ terraform destroy
 - Monitor your GCP billing dashboard regularly
 - Set up billing alerts in GCP Console
 
-## Security Notes
+## Security Best Practices
 
-- Service account credentials are git-ignored
-- Use least-privilege permissions for service accounts
-- Regularly rotate service account keys
-- Consider using Workload Identity for production
+### Authentication Security
+1. **Never commit credentials** to version control
+   - Use `.gitignore` for `*.json`, `*.tfvars`, `*.tfstate`
+   - Store service account keys outside the repository
+   
+2. **Use environment variables** for authentication:
+   ```bash
+   export GOOGLE_APPLICATION_CREDENTIALS="/secure/path/to/key.json"
+   ```
+
+3. **Rotate service account keys** regularly
+   - Delete old keys after creating new ones
+   - Use key rotation policies in production
+
+### Terraform Security
+1. **Protect state files**
+   - Never commit `terraform.tfstate` files
+   - Use remote state backend (GCS) for team projects
+   
+2. **Use variables for sensitive data**
+   - Define sensitive variables without defaults
+   - Pass values via `terraform.tfvars` (gitignored)
+   
+3. **Review before committing**
+   - Check for hardcoded project IDs
+   - Verify no credentials in code
+   - Ensure `.gitignore` is properly configured
+
+### GCP Security
+1. **Principle of least privilege**
+   - Grant minimal required permissions
+   - Use custom roles when possible
+   
+2. **Resource isolation**
+   - Use separate projects for dev/staging/prod
+   - Implement VPC security controls
+   
+3. **Monitoring and auditing**
+   - Enable Cloud Audit Logs
+   - Set up billing alerts
+   - Monitor for unusual activity
 
 ## Contributing
 

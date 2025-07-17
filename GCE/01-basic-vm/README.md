@@ -56,7 +56,7 @@ The purpose of this demo is to:
 ### Provider Configuration (provider.tf)
 ```hcl
 provider "google" {
-  credentials = file("~/Downloads/learn-gcp-465712-b4619fb17de4.json")
+  # Authentication via environment variable or gcloud CLI
   project     = var.project_id
   region      = var.region
   zone        = var.zone

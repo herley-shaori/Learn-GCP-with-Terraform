@@ -7,12 +7,23 @@ terraform {
   }
 }
 
-# Provider configuration using credentials from Downloads directory
+# Variables for project configuration
+variable "project_id" {
+  description = "GCP Project ID"
+  type        = string
+}
+
+# Provider configuration
 provider "google" {
-  credentials = file("~/Downloads/learn-gcp-465712-b4619fb17de4.json")
-  project     = "learn-gcp-465712"
-  region      = "asia-southeast2"
-  zone        = "asia-southeast2-a"
+  # Authentication: Use one of these methods:
+  # 1. Set GOOGLE_APPLICATION_CREDENTIALS environment variable
+  # 2. Use gcloud auth application-default login
+  # 3. Uncomment and set credentials path:
+  # credentials = file("path/to/your-service-account-key.json")
+  
+  project = var.project_id
+  region  = "asia-southeast2"
+  zone    = "asia-southeast2-a"
 }
 
 # Create a simple firewall rule to allow HTTP traffic
